@@ -71,13 +71,39 @@ nav .links a.btn{color:#fff;padding:10px 18px;font-size:15px}
 .logos{padding:36px 0;border-bottom:1px solid var(--line);background:#fff}
 .logos p{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:20px}
 .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-.track{display:flex;gap:64px;width:max-content;animation:scroll 32s linear infinite}
+.track{display:flex;align-items:center;width:max-content;animation:scroll 40s linear infinite}
 .marquee:hover .track{animation-play-state:paused}
-.track span{font-size:22px;font-weight:800;color:#8a96a8;white-space:nowrap;letter-spacing:-.01em}
-.track span:nth-child(3n+1){font-family:Georgia,serif;font-weight:700;letter-spacing:.02em}
-.track span:nth-child(3n+2){text-transform:uppercase;letter-spacing:.12em;font-size:18px}
+.track span{display:inline-flex;align-items:center;font-size:20px;line-height:1;font-weight:800;color:#8a96a8;white-space:nowrap;letter-spacing:-.01em}
+.track span::after{content:"";width:6px;height:6px;border-radius:50%;background:#c9d3e0;margin:0 36px}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}}
+@media (prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;row-gap:14px}.track span[aria-hidden]{display:none}}
+
+/* youtube */
+.yt{background:linear-gradient(180deg,#030d16,#0a2946);color:#fff}
+.yt h2{color:#fff}
+.yt .eyebrow{color:#7fa8ff}
+.yt .lead{color:#c7d3e3;max-width:680px}
+.yt-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.yt-stats{display:flex;gap:28px;margin-top:18px;color:#c7d3e3;font-size:15px}
+.yt-stats b{display:block;color:#fff;font-size:26px;font-weight:900;line-height:1.1}
+.btn.yt-btn{background:#ff0033}
+.btn.yt-btn:hover{background:#d9002b}
+.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+@media (max-width:900px){ .yt-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:560px){ .yt-grid{grid-template-columns:1fr} .vid:nth-child(n+5){display:none} }
+.vid{display:block;color:#fff;text-decoration:none;border-radius:16px;overflow:hidden;background:#112d4b;border:1px solid rgba(255,255,255,.08);transition:transform .2s,box-shadow .2s}
+.vid:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.vid .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#08192b}
+.vid .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.vid:hover .thumb img{transform:scale(1.04)}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center}
+.vid .play::before{content:"";width:62px;height:44px;border-radius:12px;background:rgba(255,0,51,.92);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.vid .play::after{content:"";position:absolute;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.vid .dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.8);font-size:12px;font-weight:700;padding:2px 6px;border-radius:5px}
+.vid .meta{padding:14px 16px 18px}
+.vid .kind{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#7fa8ff}
+.vid h3{font-size:17px;line-height:1.35;margin-top:6px;color:#fff}
+.yt-foot{text-align:center;margin-top:36px}
 
 /* cards */
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
@@ -195,6 +221,7 @@ footer a{color:#c7d3e3}
       <a href="#resultats">Résultats</a>
       <a href="#methode">Méthode</a>
       <a href="#qui">Qui suis-je</a>
+      <a href="#youtube">YouTube</a>
       <a href="#faq">FAQ</a>
       <a class="btn" href="#rdv">Réserver un appel</a>
     </div>
@@ -229,8 +256,8 @@ footer a{color:#c7d3e3}
   <p>Ils m'ont fait confiance</p>
   <div class="marquee" aria-label="Marques accompagnées">
     <div class="track">
-      <span>Jardinerie Bourgeon</span><span>Ornela Paris</span><span>Moonstone</span><span>Kosmopellis</span><span>CadeauxDeParis</span><span>Les Spiruvors</span><span>Inoleds</span><span>OuiSmart</span><span>Oli Neela</span><span>Happy Crackers</span>
-      <span aria-hidden="true">Jardinerie Bourgeon</span><span aria-hidden="true">Ornela Paris</span><span aria-hidden="true">Moonstone</span><span aria-hidden="true">Kosmopellis</span><span aria-hidden="true">CadeauxDeParis</span><span aria-hidden="true">Les Spiruvors</span><span aria-hidden="true">Inoleds</span><span aria-hidden="true">OuiSmart</span><span aria-hidden="true">Oli Neela</span><span aria-hidden="true">Happy Crackers</span>
+      <span>Jardinerie Bourgeon</span><span>Ornela Paris</span><span>Moonstone</span><span>Kosmopellis</span><span>CadeauxDeParis</span><span>Les Spiruvors</span><span>Inoleds</span><span>OuiSmart</span><span>Oli Neela</span><span>Happy Crackers</span><span>La Maison des Travaux</span><span>Vinqa</span><span>Smartkaufstore</span><span>Mots Croisés Magazine</span><span>M&amp;A Lab</span><span>Matcha Paris</span>
+      <span aria-hidden="true">Jardinerie Bourgeon</span><span aria-hidden="true">Ornela Paris</span><span aria-hidden="true">Moonstone</span><span aria-hidden="true">Kosmopellis</span><span aria-hidden="true">CadeauxDeParis</span><span aria-hidden="true">Les Spiruvors</span><span aria-hidden="true">Inoleds</span><span aria-hidden="true">OuiSmart</span><span aria-hidden="true">Oli Neela</span><span aria-hidden="true">Happy Crackers</span><span aria-hidden="true">La Maison des Travaux</span><span aria-hidden="true">Vinqa</span><span aria-hidden="true">Smartkaufstore</span><span aria-hidden="true">Mots Croisés Magazine</span><span aria-hidden="true">M&amp;A Lab</span><span aria-hidden="true">Matcha Paris</span>
     </div>
   </div>
 </div>
@@ -347,10 +374,51 @@ footer a{color:#c7d3e3}
         <p>Je suis Florian, basé à Marseille. Développeur web de formation, je me suis spécialisé en 2023 sur un seul canal, Meta Ads. La majorité de mes clients sont des marques e-commerce, et j'accompagne aussi d'autres entreprises qui veulent générer des ventes ou des prospects.</p>
         <p>Depuis, j'ai accompagné <strong>plus de 40 marques</strong>. Mon profil technique m'aide sur ce que beaucoup négligent : le tracking, les données et la page de vente.</p>
         <p>Vous travaillez directement avec moi, pas avec un junior d'agence.</p>
-        <p>Je partage aussi mes méthodes et des décryptages de pubs sur <strong>YouTube</strong> : c'est souvent par là que mes clients me découvrent.</p>
+        <p>Je partage aussi mes méthodes et des décryptages de pubs sur <a href="#youtube"><strong>YouTube</strong></a> : c'est souvent par là que mes clients me découvrent.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="https://www.youtube.com/@florian_grj" target="_blank" rel="noopener">▶ Ma chaîne YouTube</a><a class="btn outline" href="https://www.linkedin.com/in/florian-grosjean-314b7922a/" target="_blank" rel="noopener">Me suivre sur LinkedIn</a></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="yt" id="youtube">
+  <div class="wrap">
+    <div class="yt-head">
+      <div>
+        <span class="eyebrow">YouTube</span>
+        <h2>Faites connaissance avant même notre premier appel</h2>
+        <p class="lead">Sur ma chaîne, je partage mes méthodes, mes études de cas et des décryptages de pubs, sans filtre. C'est le meilleur moyen de voir comment je travaille et de savoir si on va bien s'entendre.</p>
+        <div class="yt-stats"><div><b>137</b>vidéos</div><div><b>700+</b>abonnés</div></div>
+      </div>
+      <a class="btn yt-btn" href="https://www.youtube.com/@florian_grj?sub_confirmation=1" target="_blank" rel="noopener">▶ S'abonner à la chaîne</a>
+    </div>
+    <div class="yt-grid">
+      <a class="vid" href="https://www.youtube.com/watch?v=Ns5tZNTrCzQ" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/Ns5tZNTrCzQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play"></span><span class="dur">10:11</span></div>
+        <div class="meta"><span class="kind">Étude de cas</span><h3>x3 son CA en 2 mois en e-commerce avec Facebook Ads</h3></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=Ck4wBCxcLuY" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/Ck4wBCxcLuY/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play"></span><span class="dur">13:05</span></div>
+        <div class="meta"><span class="kind">Guide</span><h3>Comment scaler sur Facebook Ads en 2025</h3></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=xiTyuKpRmOs" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/xiTyuKpRmOs/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play"></span><span class="dur">23:36</span></div>
+        <div class="meta"><span class="kind">Audit</span><h3>Comment analyser ses campagnes Meta Ads (audit complet)</h3></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=KzNGBkxhRvg" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/KzNGBkxhRvg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play"></span><span class="dur">12:51</span></div>
+        <div class="meta"><span class="kind">Décryptage</span><h3>La stratégie pub à +10 M€ de CA/an de Respire</h3></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=m9DTj3kdqZE" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/m9DTj3kdqZE/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play"></span><span class="dur">8:19</span></div>
+        <div class="meta"><span class="kind">Conseils</span><h3>10 erreurs fatales sur Meta Ads (et comment les éviter)</h3></div>
+      </a>
+      <a class="vid" href="https://www.youtube.com/watch?v=XOgUi-Hj91s" target="_blank" rel="noopener">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/XOgUi-Hj91s/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="play"></span><span class="dur">10:16</span></div>
+        <div class="meta"><span class="kind">Outils</span><h3>Automatiser sa veille Meta Ads avec Claude + Créabase</h3></div>
+      </a>
+    </div>
+    <div class="yt-foot"><a class="btn ghost" href="https://www.youtube.com/@florian_grj/videos" target="_blank" rel="noopener">Voir toutes les vidéos →</a></div>
   </div>
 </section>
 
